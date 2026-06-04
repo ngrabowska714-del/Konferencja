@@ -22,7 +22,7 @@ int wczytajZPliku(const char* nazwaPliku, Prelekcja tablica[], int* liczbaPrelek
     }
 
     fclose(plik);
-    printf("Sukces: Wczytano %d prelekcji z pliku '%s'.\n", *liczbaPrelekcji, nazwaPliku);
+    printf("Wczytano %d prelekcji z pliku '%s'.\n", *liczbaPrelekcji, nazwaPliku);
     return 1;
 }
 
