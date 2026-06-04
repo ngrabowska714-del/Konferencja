@@ -25,7 +25,6 @@ int dodajPrelekcje(Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji) 
     printf("Podaj czas rozpoczecia (format GG:MM): ");
     if (scanf("%d:%d", &sg, &sm) != 2 || !czyPoprawny(sg, sm)) {
         printf("Blad: nieprawidlowy format lub zakres czasu.\n");
-        // Czyszczenie bufora wejścia na wypadek śmieci
         while (getchar() != '\n');
         return 0;
     }
@@ -37,13 +36,13 @@ int dodajPrelekcje(Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji) 
         return 0;
     }
  
-    // Koniec musi być PÓŹNIEJ niż start
+   
     if (naMinuty(kg, km) <= naMinuty(sg, sm)) {
         printf("Blad: czas zakonczenia musi byc pozniejszy niz czas rozpoczecia.\n");
         return 0;
     }
  
-    // Wszystko OK — zapisz prelekcję
+    
     tablica[*liczbaPrelekcji].start_godzina  = sg;
     tablica[*liczbaPrelekcji].start_minuta   = sm;
     tablica[*liczbaPrelekcji].koniec_godzina = kg;
