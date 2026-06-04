@@ -10,7 +10,7 @@ typedef struct {
 } Prelekcja;
 
 //Tylko zadeklarowałam funkcje żeby main działał
-void dodajPrelekcje();
+int dodajPrelekcje(Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji);
 int obliczSale();
 
 #endif 
