@@ -10,7 +10,7 @@ typedef struct {
 } Prelekcja;
 
  
-//Musia³am ju¿ zadeklarowaæ te funkcj, ¿eby Twój main.c zadzia³a³
+//MusiaÅ‚am juÅ¼ zadeklarowaÄ‡ te funkcj, Å¼eby main.c zadziaÅ‚aÅ‚
 
 void dodajPrelekcje();
 int obliczSale();
