@@ -1,18 +1,8 @@
-#ifndef KONFERENCJA_H
-#define KONFERENCJA_H
+#ifndef PLIKI_H
+#define PLIKI_H
 
-// Struktura pojedynczej prelekcji
-typedef struct {
-    int start_godzina;
-    int start_minuta;
-    int koniec_godzina;
-    int koniec_minuta;
-} Prelekcja;
+#include "konferencja.h"
+int wczytajZPliku(const char* nazwaPliku, Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji);
+int zapiszDoPliku(const char* nazwaPliku, Prelekcja tablica[], int liczbaPrelekcji);
 
- 
-//Musiałam już zadeklarować te funkcj, żeby main.c zadziałał
-
-void dodajPrelekcje();
-int obliczSale();
-
-#endif // KONFERENCJA_H
+#endif 
