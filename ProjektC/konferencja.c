@@ -12,8 +12,6 @@ static int czyPoprawny(int godzina, int minuta) {
             minuta >= 0 && minuta <= 59);
 }
 
-
-
 int dodajPrelekcje(Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji) {
     if (*liczbaPrelekcji >= maxPrelekcji) {
         printf("Blad: osiagnieto maksymalna liczbe prelekcji (%d).\n", maxPrelekcji);
@@ -37,12 +35,17 @@ int dodajPrelekcje(Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji) 
     }
  
    
+
+
     if (naMinuty(kg, km) <= naMinuty(sg, sm)) {
         printf("Blad: czas zakonczenia musi byc pozniejszy niz czas rozpoczecia.\n");
         return 0;
     }
  
-    
+
+
+
+
     tablica[*liczbaPrelekcji].start_godzina  = sg;
     tablica[*liczbaPrelekcji].start_minuta   = sm;
     tablica[*liczbaPrelekcji].koniec_godzina = kg;
@@ -53,4 +56,10 @@ int dodajPrelekcje(Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji) 
            "Lacznie prelekcji: %d.\n",
            sg, sm, kg, km, *liczbaPrelekcji);
     return 1;
+}
+int obliczSale(Prelekcja tablica[], int liczbaPrelekcji) {
+
+
+
+
 }

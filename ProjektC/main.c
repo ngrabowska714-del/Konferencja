@@ -27,6 +27,7 @@ int main() {
         switch (wybor) {
         case 1:
             printf("\nOpcja: Dodawanie prelekcji\n");
+            dodajPrelekcje(wszystkiePrelekcje, &aktualnaLiczba, MAX_PRELEKCJI);
             break;
         case 2:
             printf("\nOpcja: Wczytywanie z pliku\n");
@@ -34,6 +35,7 @@ int main() {
             break;
         case 3:
             printf("\nOpcja: Obliczanie sal\n");
+            obliczSale(wszystkiePrelekcje, aktualnaLiczba);
             break;
         case 4:
             printf("\nOpcja: Zapis do pliku\n");
