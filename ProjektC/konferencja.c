@@ -57,9 +57,56 @@ int dodajPrelekcje(Prelekcja tablica[], int* liczbaPrelekcji, int maxPrelekcji) 
            sg, sm, kg, km, *liczbaPrelekcji);
     return 1;
 }
+typedef struct {
+    int czas;   
+    int typ;    
+} Zdarzenie;
+
+
+static int porownajZdarzenia(const void* a, const void* b) {
+    const Zdarzenie* za = (const Zdarzenie*)a;
+    const Zdarzenie* zb = (const Zdarzenie*)b;
+    if ((*za).czas != (*zb).czas)
+        return (*za).czas - (*zb).czas;
+    return (*za).typ - (*zb).typ; //ten sam czas to koniec przed start
+}
+
+
+
 int obliczSale(Prelekcja tablica[], int liczbaPrelekcji) {
 
+    if (liczbaPrelekcji <= 0) {
+        printf("Brak prelekcji do obliczenia.\n");
+        return -1;
+    }
+
+    int liczbaZdarzen = liczbaPrelekcji * 2;
+    Zdarzenie zdarzenia[MAX_PRELEKCJI * 2];
+
+
+    for (int i = 0; i < liczbaPrelekcji; i++) {
+        zdarzenia[2 * i].czas = naMinuty(tablica[i].start_godzina, tablica[i].start_minuta);
+        zdarzenia[2 * i].typ = +1;  //Start 
+
+
+        zdarzenia[2 * i + 1].czas = naMinuty(tablica[i].koniec_godzina, tablica[i].koniec_minuta);
+        zdarzenia[2 * i + 1].typ = -1;  //koniec
+    }
+
+
+    qsort(zdarzenia, liczbaZdarzen, sizeof(Zdarzenie), porownajZdarzenia);
 
 
 
+    int aktSal = 0;
+    int maksSal = 0;
+
+    for (int i = 0; i < liczbaZdarzen; i++) {
+        aktSal += zdarzenia[i].typ;
+        if (aktSal > maksSal)
+            maksSal = aktSal;
+    }
+
+    printf("Minimalna wymagana liczba sal konferencyjnych: %d\n", maksSal);
+    return maksSal;
 }
