@@ -9,7 +9,7 @@ int wczytajZPliku(const char* nazwaPliku, Prelekcja tablica[], int* liczbaPrelek
         return 0; 
     }
 
-    *liczbaPrelekcji = 0;
+    int wczytanoTeraz = 0;
 
     while (*liczbaPrelekcji < maxPrelekcji &&
         fscanf(plik, "%d:%d %d:%d",
@@ -19,10 +19,12 @@ int wczytajZPliku(const char* nazwaPliku, Prelekcja tablica[], int* liczbaPrelek
             &tablica[*liczbaPrelekcji].koniec_minuta) == 4) {
 
         (*liczbaPrelekcji)++; 
+        wczytanoTeraz++;
     }
 
     fclose(plik);
-    printf("Wczytano %d prelekcji z pliku '%s'.\n", *liczbaPrelekcji, nazwaPliku);
+    printf("Wczytano dodatkowych %d prelekcji z pliku '%s'. Lacznie w pamieci jest ich %d.\n", wczytanoTeraz, nazwaPliku, *liczbaPrelekcji);
+    
     return 1;
 }
 
